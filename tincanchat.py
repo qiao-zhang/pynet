@@ -20,7 +20,7 @@ def parse_recvd_data(data):
     return msgs, rest
 
 
-def recv_msg(sock, data=bytes()):
+def recv_msgs(sock, data=bytes()):
     data = bytearray()
     msgs = []
     while not msgs:
