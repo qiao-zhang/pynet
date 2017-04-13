@@ -13,18 +13,24 @@ def create_listen_socket(host, port):
     return sock
 
 
-def recv_msg(sock):
+def parse_recvd_data(data):
+    parts = data.split(b'\0')
+    msgs = parts[:-1]
+    rest = parts[-1]
+    return msgs, rest
+
+
+def recv_msg(sock, data=bytes()):
     data = bytearray()
-    msg = ''
-    while not msg:
+    msgs = []
+    while not msgs:
         recvd = sock.recv(BUFSIZ)
         if not recvd:
             raise ConnectionError()
         data += recvd
-        if b'\0' in recvd:
-            msg = data.rstrip(b'\0')
-    msg = msg.decode('utf-8')
-    return msg
+        msgs, rest = parse_recvd_data(data)
+    msgs = [msg.decode('utf-8') for msg in msgs]
+    return msgs, rest
 
 
 def prep_msg(msg):
