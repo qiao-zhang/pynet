@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+{% block body %}
+  <h1>Python Builtins Docstrings</h1>
+  <div>
+    {% for func in funcs %}
+      <div class="menuitem link">
+        <a href="/functions/{{ func }}">{{ func }}</a>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
