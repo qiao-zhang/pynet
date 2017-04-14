@@ -1,0 +1,28 @@
+body {
+    font-family:SansSerif;
+    background: white;
+}
+h1 {
+    color: #38b;
+}
+pre {
+    margin:0px;
+    font-size:1.2em;
+}
+.menuitem {
+    float: left;
+    margin: 1px 1px 0px 0px;
+}
+.link {
+    width:100px;
+    padding:5px 25px;
+    background: #eee;
+}
+.link a {
+    text-decoration: none;
+    color: #38b;
+}
+.link a:hover {
+    font-weight:bold;
+    color: #38b;
+}
